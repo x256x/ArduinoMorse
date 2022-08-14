@@ -6,8 +6,34 @@
  *          char*型  Spaceは空でも可
  */
 void setup(){
-  m_init(13,0,35);
-  m("a");
+  m_init(13,0,50);
+  //String s = "ah my heart will be hopping";
+  m_str("ah my heart will be hopping");
+  //int l = s.length();
+  /*int j=0;
+  int h=1;
+  String c;
+  c = s.substring(j,h);
+  m(c.c_str());
+  j++;h++;
+  c = s.substring(j,h);
+  m(c.c_str());
+  j++;h++;
+  c = s.substring(j,h);
+  m(c.c_str());*/
+
+  /*int l = s.length();
+  int h=0;
+  int j=1;
+  String c;
+  for(int i=0; i<l; i++){
+      c = s.substring(j,h);
+      m(c.c_str());
+      j++;h++;
+  }*/
+
+
+  /*m("a");
   m("h");
   m("");
   m("m");
@@ -52,7 +78,7 @@ void setup(){
   m("ン");
   m("ジ");
   m("ヤ");
-  m("ー");
+  m("ー");*/
 }
 
 void loop(){

@@ -13,6 +13,18 @@ void m_init(int x,int y,int z){
   dly[3]=z*3;
   dly[4]=z*4;
 }
+void m_str(String x){
+  int l = x.length();
+  int d=0;
+  int e=1;
+  int j=2;
+  String s;
+  for(int i=0; i<l; i++){
+      s = x.substring(d,e);
+      m(s.c_str());
+      d++;e++;
+  }
+}
 void t(int x){
   if(fre!=0){
     if(x==0){

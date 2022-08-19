@@ -22,11 +22,13 @@ void m_str(String x){
 	int jx=0;
 	int jy=3;
 	String s;
-	const char* c;
 	for(int i=0; i<l; i++){
 		s = x.substring(jx,jy);
-		c = s.c_str();
-		if(strcmp(c,"あ")>=0&&strcmp(c,"ヺ")<=0){
+		if(strcmp(s.c_str(),"あ")>=0&&strcmp(s.c_str(),"ゖ")<=0){
+			s[1]+=0x1;s[2]+=0x20;	// <--Hiragana to Katakana
+			m(s.c_str());
+			ex+=3;ey+=3;jx+=3;jy+=3;i+=2;
+		}else if(strcmp(s.c_str(),"ア")>=0&&strcmp(s.c_str(),"ヶ")<=0){
 			m(s.c_str());
 			ex+=3;ey+=3;jx+=3;jy+=3;i+=2;
 		}else{
@@ -138,11 +140,5 @@ void m(const char* x){
 	}else if(strcmp(x,"ー")==0)										{ t(0);t(1);t(1);t(0);t(1);			 delay(dly[2]);
 	}else if(strcmp(x,"､")==0)										{ t(0);t(1);t(0);t(1);t(0);t(1); delay(dly[2]);
 	}else if(strcmp(x," ")==0||strcmp(x,"")==0)		{																 delay(dly[4]);
-	}//else /*if(x[2]>=0xe38182&&x[2]<=0xe38296)*/{
-		//Serial.println(x);
-		//const char* y=x[2]+0x20;
-		//y=y[1]+0x1;
-		//Serial.println(y);
-		//m(y);
-	//}以下例外
+	}
 }

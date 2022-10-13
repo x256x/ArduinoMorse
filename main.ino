@@ -2,7 +2,7 @@
  /*<Copyright (c) 2022 x256x>*/
 /*==========================*/
 void setup(){
-  m_init(13,0,500);
+  m_init(13,0,50);
   Serial.begin(9600);
 }
 

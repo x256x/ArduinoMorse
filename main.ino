@@ -1,8 +1,9 @@
   /*==========================*/
  /*<Copyright (c) 2022 x256x>*/
 /*==========================*/
+#include "libmorse.h"
 void setup(){
-  m_init(13,0,50);
+  m_init(13,0,250);
   Serial.begin(9600);
 }
 

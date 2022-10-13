@@ -1,6 +1,8 @@
   /*==========================*/
  /*<Copyright (c) 2022 x256x>*/
 /*==========================*/
+#include "libmorse.h"
+
 int dly[5];
 int PIN;
 int fre;

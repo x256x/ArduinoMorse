@@ -1,5 +1,5 @@
-# What code?  
-## This code outputs morse code.  
+# ArduinoMorse 
+This code outputs morse code.  
   
 # Functions  
 - m             :convert to morse code

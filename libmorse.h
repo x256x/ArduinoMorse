@@ -11,8 +11,8 @@ extern int dly[5];
 extern int PIN;
 extern int fre;
 
-void m_init(int x,int y,int z);
-void m_str(String x);
+void morse_init(int x,int y,int z);
+void morse_string(String x);
 void t(int x);
 void m(const char* x);
 

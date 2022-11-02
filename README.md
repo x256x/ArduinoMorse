@@ -1,28 +1,36 @@
 # ArduinoMorse 
+
+## Overview
 This code outputs morse code.  
   
-# Functions  
-- m             :convert to morse code
-- m_init        :initialize m
-- m_str         :convert string to morse code
-- t             :Output elements of Morse code
-  
-# m
-- Argument      :const char* 1 character
-- Return value  :none
-- Example       :m("a");
+## Function
 
-# m_init
-- Argument      :int PIN nomber,int frequency(0 or 32 or more),int Speed(not 0)
-- Return value  :none
-- Example       :m_init(13,1000,50);
+- void m_init(pin,frequency,delay);
+	- initialize m
+- void m_str(string);
+	- convert string to morse code
+- void m(char*);
+	- convert char* to morse code
 
-# m_str
-- Argument      :String literal
-- Return value  :none
-- Example       :m_str("rick roll");
+## Example
 
-# t
-- Argument      :int mode
-- Return value  :none
-- Example       :t(0);
+```c++
+  /*==========================*/
+ /*<Copyright (c) 2022 x256x>*/
+/*==========================*/
+#include "libmorse.h"
+
+String str;
+
+void setup(){
+  morse_init(13,1000,50);
+  Serial.begin(9600);
+}
+
+void loop(){
+  if (Serial.available() > 0){
+    str=Serial.readString();
+    morse_string(str);
+  }
+}
+```

@@ -34,3 +34,7 @@ void loop(){
   }
 }
 ```
+
+## Licence
+
+[MIT licence](https://github.com/x256x/ArduinoMorse/blob/main/LICENSE)

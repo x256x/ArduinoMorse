@@ -6,11 +6,11 @@ Morse output with Arduino
 
 ## Function
 - `void morse_init(pin,frequency,delay);`
-	- Initializing variables
+	- initializing variables
 - `void morse_string(string);`
-	- convert string to morse code
+	- output morse from string
 - `void m(char*);`
-	- convert char\* to morse code
+	- output morse from char\*
 
 ## Example
 ```c++

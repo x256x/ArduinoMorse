@@ -1,19 +1,18 @@
-# ArduinoMorse 
+# ArduinoMorse
+<img src="/img/logo.jpg" alt="logo" width="375px">
 
 ## Overview
-This code outputs morse code.  
-  
-## Function
+This code outputs morse code.
 
-- void m_init(pin,frequency,delay);
-	- initialize m
-- void m_str(string);
+## Function
+- `void morse_init(pin,frequency,delay);`
+	- set morse
+- `void morse_string(string);`
 	- convert string to morse code
-- void m(char*);
-	- convert char* to morse code
+- `void m(char*);`
+	- convert char\* to morse code
 
 ## Example
-
 ```c++
   /*==========================*/
  /*<Copyright (c) 2022 x256x>*/
@@ -36,5 +35,4 @@ void loop(){
 ```
 
 ## Licence
-
 [MIT licence](https://github.com/x256x/ArduinoMorse/blob/main/LICENSE)

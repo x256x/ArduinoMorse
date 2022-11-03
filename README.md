@@ -6,7 +6,7 @@ Morse output with Arduino
 
 ## Function
 - `void morse_init(pin,frequency,delay);`
-	- set morse
+	- Initializing variables
 - `void morse_string(string);`
 	- convert string to morse code
 - `void m(char*);`

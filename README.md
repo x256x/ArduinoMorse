@@ -2,7 +2,7 @@
 <img src="/img/logo.jpg" alt="logo" width="375px">
 
 ## Overview
-Output morse code with Arduino
+Morse output with Arduino
 
 ## Function
 - `void morse_init(pin,frequency,delay);`

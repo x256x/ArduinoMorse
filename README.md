@@ -4,6 +4,10 @@
 ## Overview
 Morse output with Arduino
 
+## Features
+- supports serial communication
+- supports Wabun
+
 ## Function
 - `void morse_init(pin,frequency,delay);`
 	- initializing variables
@@ -36,3 +40,9 @@ void loop(){
 
 ## Licence
 [MIT licence](LICENSE)
+
+---
+### To do
+ArduinoUno以外での動作確認  
+和文と英文以外の文字(キリル文字など)への対応  
+Etc...

@@ -6,7 +6,7 @@
 String str;
 
 void setup(){
-  morse_init(13,50,50);
+  morse_init(13,1000,100);
   Serial.begin(9600);
 }
 

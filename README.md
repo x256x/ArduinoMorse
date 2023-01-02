@@ -1,5 +1,5 @@
 # ArduinoMorse
-<img src="/img/logo.jpg" alt="logo" width="375px">
+<img src="./img/logo.jpg" alt="logo" width="400px">
 
 ## Overview
 Morse output with Arduino
@@ -26,6 +26,7 @@ Morse output with Arduino
 String str;
 
 void setup(){
+  //morse_init(pin,frequency,delay);
   morse_init(13,1000,50);
   Serial.begin(9600);
 }
@@ -45,4 +46,5 @@ void loop(){
 ### To do
 ArduinoUno以外での動作確認  
 和文と英文以外の文字(キリル文字など)への対応  
+グローバルのライブラリ化
 Etc...

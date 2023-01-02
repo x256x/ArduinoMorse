@@ -7,36 +7,35 @@ int dly[5];
 int PIN;
 int fre;
 
-void morse_init(int x,int y,int z){
-  PIN=x;
+void morse_init(int pn,int fr,int dl){
+  PIN=pn;
   if(fre==0)
     pinMode(PIN,OUTPUT);
-  fre=y;
-  dly[1]=z;
-  dly[2]=z*2;
-  dly[3]=z*3;
-  dly[4]=z*4;
+  fre=fr;
+  dly[1]=dl;
+  dly[2]=dl*2;
+  dly[3]=dl*3;
+  dly[4]=dl*4;
 }
-void morse_string(String x){
-  int l = x.length();
-  int ex=0;
-  int ey=1;
-  int jx=0;
-  int jy=3;
+void morse_string(String inp){
+  int len = inp.length();
+  int vg=0;
+  int ve=1;
+  int vj=3;
   String s;
-  for(int i=0; i<l; i++){
-    s = x.substring(jx,jy);
+  for(int i=0; i<len; i++){
+    s = inp.substring(vg,vj);
     if(strcmp(s.c_str(),"あ")>=0&&strcmp(s.c_str(),"ゔ")<=0){
       s[1]+=0x1;s[2]+=0x20; // <--Hiragana to Katakana
       m(s.c_str());
-      ex+=3;ey+=3;jx+=3;jy+=3;i+=2;
+      vg+=3;ve+=3;vj+=3;i+=2;
     }else if(strcmp(s.c_str(),"゙")>=0&&strcmp(s.c_str(),"ー")<=0){
       m(s.c_str());
-      ex+=3;ey+=3;jx+=3;jy+=3;i+=2;
+      vg+=3;ve+=3;vj+=3;i+=2;
     }else{
-      s = x.substring(ex,ey);
+      s = inp.substring(vg,ve);
       m(s.c_str());
-      ex++;ey++;jx++;jy++;
+      vg++;ve++;vj++;
     }
   }
 }

@@ -16,6 +16,10 @@ Morse output with Arduino
 - `void m(char*);`
 	- output morse from char\*
 
+## NOTE
+<!-- * Enter Japanese parentheses with double-byte characters.-->
+* Please enter in lowercase (will be fixed in a future update)
+
 ## Example
 ```c++
   /*==========================*/

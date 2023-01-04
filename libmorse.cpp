@@ -17,6 +17,7 @@ void morse_init(int pn,int fr,int dl){
   dly[3]=dl*3;
   dly[4]=dl*4;
 }
+//ひらがなはユニコードで飛び地になってるのでそれの修正
 void morse_string(String inp){
   int len = inp.length();
   int vg=0;
@@ -25,17 +26,27 @@ void morse_string(String inp){
   String s;
   for(int i=0; i<len; i++){
     s = inp.substring(vg,vj);
-    if(strcmp(s.c_str(),"あ")>=0&&strcmp(s.c_str(),"ゔ")<=0){
-      s[1]+=0x1;s[2]+=0x20; // <--Hiragana to Katakana
+    if((strcmp(s.c_str(),"あ")>=0&&strcmp(s.c_str(),"た")<=0)||(strcmp(s.c_str(),"む")>=0&&strcmp(s.c_str(),"ゔ")<=0)){
+      s[1]+=0x1;s[2]+=0x20;
       m(s.c_str());
       vg+=3;ve+=3;vj+=3;i+=2;
+      break;
+    }else if(strcmp(s.c_str(),"だ")>=0&&strcmp(s.c_str(),"み")<=0){
+      s[1]+=0x2;s[2]-=0x20;
+      m(s.c_str());
+      vg+=3;ve+=3;vj+=3;i+=2;
+      break;
     }else if(strcmp(s.c_str(),"゙")>=0&&strcmp(s.c_str(),"ー")<=0){
       m(s.c_str());
       vg+=3;ve+=3;vj+=3;i+=2;
+      break;
     }else{
       s = inp.substring(vg,ve);
-      m(s.c_str());
-      vg++;ve++;vj++;
+      if(strcmp(s.c_str()," ")>=0&&strcmp(s.c_str(),"z")<=0){
+        m(s.c_str());
+        vg++;ve++;vj++;
+        break;
+      }
     }
   }
 }
@@ -77,11 +88,14 @@ void m(const char *x){
   else if(strcmp(x,"ロ")==0)                  {t(0);t(1);t(0);t(1);          }
   else if(strcmp(x,"ハ")==0||strcmp(x,"b")==0){t(1);t(0);t(0);t(0);          }
   else if(strcmp(x,"バ")==0)                  {m("ハ");m("゛");              }
+  else if(strcmp(x,"パ")==0)                  {m("ハ");m("゜");              }
   else if(strcmp(x,"ニ")==0||strcmp(x,"c")==0){t(1);t(0);t(1);t(0);          }
   else if(strcmp(x,"ホ")==0||strcmp(x,"d")==0){t(1);t(0);t(0);               }
   else if(strcmp(x,"ボ")==0)                  {m("ホ");m("゛");              }
+  else if(strcmp(x,"ポ")==0)                  {m("ホ");m("゜");              }
   else if(strcmp(x,"ヘ")==0||strcmp(x,"e")==0){t(0);                         }
   else if(strcmp(x,"ベ")==0)                  {m("ヘ");m("゛");              }
+  else if(strcmp(x,"ペ")==0)                  {m("ヘ");m("゜");              }
   else if(strcmp(x,"ト")==0)                  {t(0);t(0);t(1);t(0);t(0);     }
   else if(strcmp(x,"ド")==0)                  {m("ト");m("゛");              }
   else if(strcmp(x,"チ")==0||strcmp(x,"f")==0){t(0);t(0);t(1);t(0);          }
@@ -121,6 +135,7 @@ void m(const char *x){
   else if(strcmp(x,"ゲ")==0)                  {m("ケ");m("゛");              }
   else if(strcmp(x,"フ")==0||strcmp(x,"z")==0){t(1);t(1);t(0);t(0);          }
   else if(strcmp(x,"ブ")==0)                  {m("フ");m("゛");              }
+  else if(strcmp(x,"プ")==0)                  {m("フ");m("゜");              }
   else if(strcmp(x,"コ")==0)                  {t(1);t(1);t(1);t(1);          }
   else if(strcmp(x,"ゴ")==0)                  {m("コ");m("゛");              }
   else if(strcmp(x,"エ")==0)                  {t(1);t(0);t(1);t(1);t(1);     }
@@ -140,6 +155,7 @@ void m(const char *x){
   else if(strcmp(x,"ヹ")==0)                  {m("ヱ");m("゛");              }
   else if(strcmp(x,"ヒ")==0)                  {t(1);t(1);t(0);t(0);t(1);     }
   else if(strcmp(x,"ビ")==0)                  {m("ヒ");m("゛");              }
+  else if(strcmp(x,"ピ")==0)                  {m("ヒ");m("゜");              }
   else if(strcmp(x,"モ")==0)                  {t(1);t(0);t(0);t(1);t(0);     }
   else if(strcmp(x,"セ")==0)                  {t(0);t(1);t(1);t(1);t(0);     }
   else if(strcmp(x,"ゼ")==0)                  {m("セ");m("゛");              }
@@ -155,6 +171,7 @@ void m(const char *x){
   else if(strcmp(x,"-")==0)                   {t(1);t(0);t(0);t(0);t(0);t(1);}
   else if(strcmp(x,"(")==0)                   {t(1);t(0);t(1);t(1);t(0);t(1);}
   else if(strcmp(x,")")==0)                   {t(0);t(1);t(0);t(0);t(1);t(0);}
+  else if(strcmp(x,"）")==0)                  {t(0);t(1);t(0);t(0);t(1);t(0);}
   else if(strcmp(x,"/")==0)                   {t(1);t(0);t(0);t(1);t(0);     }
   else if(strcmp(x,"=")==0)                   {t(1);t(0);t(0);t(0);t(1);     }
   else if(strcmp(x,"+")==0)                   {t(0);t(1);t(0);t(1);t(0);     }
